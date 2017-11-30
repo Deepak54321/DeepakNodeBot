@@ -36,22 +36,37 @@ app.post('/webhook', function (req, res) {
                 				'type': 2}],
             					})
    }
-  if(req.body.result.action=='hotel')
+   if(req.body.result.action=='Priceapi')
   {
-   res.status(200).json({
-           					source: 'webhook',
-          					speech: 'message',
-           					displayText: 'message',
-		    				"followupEvent":{
-						"name":"re_ask",
-							"data":
-							{
-								"check_in":"",
-								"check_out":"",
-								"adults":"3"
-							}
-						}
-            					})
+   var request = require('request');
+            request({
+                url:'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240'
+            },function (error,response,body) {
+                if (!error && response.statusCode == 200) {
+                    var result = JSON.parse(body);
+                    var responseCode=result.responseData;
+                    var productPrice=responseCode.product_price;
+                    var price=productPrice[0].price +'Rs';
+           res.status(200).json({
+           source: 'webhook',
+           speech: price,
+           displayText: price,
+		    'messages': 
+              [{
+                   'type':0,
+                   'speech':price
+               },
+                  {'title': 'Please provide your feedback',
+                'replies': ['Feedback'],
+                'type': 2}],
+            })
+                }
+                else {
+                    console(log.error());
+                }
+            });
+   
+ 
   }
 if(req.body.result.action=='Dealerapi')
   {
