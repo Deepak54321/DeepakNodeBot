@@ -59,7 +59,6 @@ if(req.body.result.action=='ask')
                    'type':0,
                    'speech':message
                },
-               ,
                                 {'title': 'Please Select product type',
                                 'replies': ['Motorcycles','Scooter'],
                                 'type': 2}
