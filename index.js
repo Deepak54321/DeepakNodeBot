@@ -78,8 +78,8 @@ if(req.body.result.action=='ask')
                             {
                                 "productname":Name,
                                 "ProductEnquiryEmail":Email,
-                                "ProductPhoneNumber":"",
-                                "pincode":pincode
+                                "pincode":pincode,
+                                 "ProductPhoneNumber":""
                             }
                         }
         
