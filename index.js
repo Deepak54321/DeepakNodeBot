@@ -37,16 +37,18 @@ app.post('/webhook', function (req, res) {
             					})
    }
 
-if(req.body.result.action=='phone')
+if(req.body.result.action=='ask')
   {
        var result=req.body.result;
             var context=result.contexts[0];
             var PhoneNumber=context.parameters.ProductPhoneNumber;
+            var Name=context.parameters.productname;
+            var Email=context.parameters.ProductEnquiryEmail;
             var pattern = /^\d{10}$/;
       console.log("%s",PhoneNumber);
       if(pattern.test(PhoneNumber))
       {
-          var message='please share your email';
+          var message='please share your pincode';
             res.status(200).json({
            source: 'webhook',
            //speech: message,
@@ -65,10 +67,12 @@ if(req.body.result.action=='phone')
                             speech: 'Invalid phone Number Please enter again',
                             displayText: 'Invalid phone Number Please enter again',
                             "followupEvent":{
-                        "name":"re_phone",
+                        "name":"re_ask",
                             "data":
                             {
-                                "ProductPhoneNumber":""
+                                "productname":Name,
+                                "ProductPhoneNumber":"",
+                                "ProductEnquiryEmail":Email
                             }
                         }
         
