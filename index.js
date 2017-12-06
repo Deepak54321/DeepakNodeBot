@@ -41,7 +41,7 @@ if(req.body.result.action=='phone')
   {
        var result=req.body.result;
             var context=result.contexts[0];
-            var PhoneNumber=context.parameters.phonenumber;
+            var PhoneNumber=context.parameters.ProductPhoneNumber;
             var pattern = /^\d{10}$/;
       console.log("%s",PhoneNumber);
       if(pattern.test(PhoneNumber))
@@ -68,7 +68,7 @@ if(req.body.result.action=='phone')
                         "name":"re_phone",
                             "data":
                             {
-                                "phonenumber":""
+                                "ProductPhoneNumber":""
                             }
                         }
         
@@ -81,7 +81,7 @@ if(req.body.result.action=='phone')
   {
        var result=req.body.result;
             var context=result.contexts[0];
-            var Email=context.parameters.email;
+            var Email=context.parameters.ProductEnquiryEmail;
             var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
              //var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
       console.log("%s",Email);
@@ -113,7 +113,7 @@ if(req.body.result.action=='phone')
                         "name":"re_email",
                             "data":
                             {
-                                "email":""
+                                "ProductEnquiryEmail":""
                             }
                         }
         
@@ -419,7 +419,7 @@ if(req.body.result.action=='phone')
   }
 
 
-   
+
    if(req.body.result.action=='Priceapi')
   {
    var request = require('request');
