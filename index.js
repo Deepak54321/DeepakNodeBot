@@ -44,11 +44,12 @@ if(req.body.result.action=='ask')
             var PhoneNumber=context.parameters.ProductPhoneNumber;
             var Name=context.parameters.productname;
             var Email=context.parameters.ProductEnquiryEmail;
+            var pincode=context.parameters.pincode
             var pattern = /^\d{10}$/;
       console.log("%s",PhoneNumber);
       if(pattern.test(PhoneNumber))
       {
-          var message='please share your pincode';
+          var message='Thanks for sharing your details now you can proceed further.';
             res.status(200).json({
            source: 'webhook',
            //speech: message,
@@ -57,7 +58,12 @@ if(req.body.result.action=='ask')
               [{
                    'type':0,
                    'speech':message
-               }]
+               },
+               ,
+                                {'title': 'Please Select product type',
+                                'replies': ['Motorcycles','Scooter'],
+                                'type': 2}
+               ]
             })
       }
       else
@@ -71,8 +77,9 @@ if(req.body.result.action=='ask')
                             "data":
                             {
                                 "productname":Name,
+                                "ProductEnquiryEmail":Email,
                                 "ProductPhoneNumber":"",
-                                "ProductEnquiryEmail":Email
+                                "pincode":pincode
                             }
                         }
         
