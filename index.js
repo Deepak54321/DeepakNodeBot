@@ -124,7 +124,7 @@ if(req.body.result.action=='ask')
                             speech: 'Invalid phone Number Please enter again',
                             displayText: 'Invalid phone Number Please enter again',
                             "followupEvent":{
-                        "name":"testre_ask",
+                        "name":"test_ask",
                             "data":
                             {
                                 "TestName":Name,
@@ -176,7 +176,7 @@ if(req.body.result.action=='ask')
                             speech: 'Invalid phone Number Please enter again',
                             displayText: 'Invalid phone Number Please enter again',
                             "followupEvent":{
-                        "name":"re_ask",
+                        "name":"compre_ask",
                             "data":
                             {
                                 "complaintname":Name,
