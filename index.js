@@ -163,8 +163,8 @@ if(req.body.result.action=='ask')
                    'type':0,
                    'speech':message
                },
-                                {'title': 'Please Select product type',
-                                'replies': ['Motorcycles','Scooter'],
+                                {'title': 'Do you have your Vehicle Chassis Number?',
+                                'replies': ['Yes','No'],
                                 'type': 2}
                ]
             })
